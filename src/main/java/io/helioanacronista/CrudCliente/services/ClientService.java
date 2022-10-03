@@ -23,7 +23,7 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id) {
-        Client client = repository.findById(id).orElseThrow( () -> new ResourceNotFoundException ("Recurso não encontrado" ));
+        Client client = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
         return new ClientDTO(client);
     }
 
@@ -44,7 +44,7 @@ public class ClientService {
     }
 
     @Transactional
-    public ClientDTO update (Long id, ClientDTO dto) {
+    public ClientDTO update(Long id, ClientDTO dto) {
         try {
 
             Client entity = repository.getReferenceById(id);
@@ -59,7 +59,7 @@ public class ClientService {
     }
 
     @Transactional
-    public void delete (Long id) {
+    public void delete(Long id) {
         try {
 
             repository.deleteById(id);
